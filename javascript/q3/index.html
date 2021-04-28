@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset='utf-8'>
+  <title>demo</title>
+</head>
+<body>
+  <div id="app">
+    <p v-text="msg"></p>
+    <p>{{msg}}</p>
+    <p v-html="msg"></p>
+    <input type="text" v-model="msg">
+    <p>
+      <button v-on:click="clickFn">Btn</button>
+    </p>
+  </div>
+  <script src="watcher.js"></script>
+  <script src="observer.js"></script>
+  <script src="compile.js"></script>
+  <script src="mvvm.js"></script>
+  <script>
+    const mvvm = new MVVM({
+      el: '#app',
+      data: {
+        msg: 'karate',
+        car: {
+          color: 'red'
+        }
+      },
+      methods: {
+        clickFn () {
+          this.msg = 'input...'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
